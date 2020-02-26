@@ -18,11 +18,10 @@ const Register = props => {
     <div>
       <form onSubmit={event => {
         event.preventDefault();
-        props.getAddUser(user)
-        // if (!user.name || !user.type || !user.price) return
+        if (!user.first_name || !user.last_name || !user.username || !user.email || !user.password || !user.password_confirmation) return
 
-        // props._adduser(user);
-        // setUser(initialFormState);
+        props.getAddUser(user);
+        setUser(initialFormState);
       }}>
         <div className="container">
           <label htmlFor="first_name"><b>First Name</b></label>
