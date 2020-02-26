@@ -7,7 +7,6 @@ import {
       case START_ADD_USER:
         return {
           ...state
-          // data: action.payload
         };
       default:
         return state;
