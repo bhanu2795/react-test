@@ -7,6 +7,7 @@ import example from "./example";
 import register from "./register";
 import login from './login';
 import address from './address';
+import product from './product';
 
 const config = {
   key: 'root',
@@ -20,7 +21,8 @@ const appReducer = {
   example,
   register,
   login,
-  address
+  address,
+  product
 };
 
 

@@ -1,0 +1,3 @@
+export const START_GET_PRODUCT = 'START_GET_PRODUCT';
+export const STORE_PRODUCT = 'STORE_PRODUCT';
+export const END_GET_PRODUCT = 'END_GET_PRODUCT';
