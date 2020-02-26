@@ -33,7 +33,7 @@ const Products = props => {
                       <td>{name}</td>
                       <td>{price}</td>
                       <td>{categories[0].name}</td>
-                      <td><Link to={`/product/:${slug}`}>Product Detals</Link></td>
+                      <td><Link to={`/product/${slug}`}>Product Detals</Link></td>
                     </tr>
                   ))
                 ) : <tr>No Data Available</tr>

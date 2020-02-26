@@ -1,5 +1,6 @@
 import {
     STORE_PRODUCT,
+    GET_PRODUCT_DETAIL
 } from "../actions/product/actionTypes";
 
 export default (state = {}, action) => {
@@ -9,6 +10,11 @@ export default (state = {}, action) => {
                 ...state,
                 data: action.payload
             };
+        case GET_PRODUCT_DETAIL: 
+        return {
+            ...state,
+            detail: action.payload
+        };
         default:
             return state;
     }

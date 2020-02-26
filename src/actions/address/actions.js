@@ -32,7 +32,6 @@ export const getAddress = () => async dispatch => {
 
 export const addAddress = data => async dispatch => {
   const response = await mockGetAddress(data);
-  console.log(response)
   if(response.success) {
     dispatch(addAddressAction(response));
   } else {
