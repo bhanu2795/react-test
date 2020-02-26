@@ -1,4 +1,4 @@
-// import { store } from '../../store';
+import { store } from '../../store/store';
 
 export const config = {
     BASE_URL: 'http://apitest.partsplusmore.com/',
@@ -10,7 +10,7 @@ export const getData = (url, key) => {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            // 'Authorization': (store.getState().settings.user ? store.getState().settings.user.isSuccess : store.getState().settings.user) ? store.getState().settings.user.data.authToken : ''
+            'Authorization': store.getState().login ? (store.getState().login.data ? `Bearer ${store.getState().login.data.token}` : '') : ''
         },
     }).then(res => res.json()).then(res => res).catch(err => console.log(err));
 }
@@ -21,10 +21,10 @@ export const postData = (url, data) => {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            // 'Authorization': (store.getState().settings.user ? store.getState().settings.user.isSuccess : store.getState().settings.user) ? store.getState().settings.user.data.authToken : ''
+            'Authorization': store.getState().login ? (store.getState().login.data ? `Bearer ${store.getState().login.data.token}` : '') : ''
         },
         body: JSON.stringify(data)
-    }).then(res => res.json()).then(res =>  res).catch(err => {
+    }).then(res => res.json()).then(res => res).catch(err => {
         if (err.name === 'AbortError') return;
         throw err;
     });

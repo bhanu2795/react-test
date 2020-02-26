@@ -1,8 +1,24 @@
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { persistStore } from 'redux-persist';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import devToolsEnhancer from 'remote-redux-devtools';
 import rootReducer from "../reducers/rootReducer";
-import { composeWithDevTools } from "redux-devtools-extension";
 
-export default function configureStore() {
-  return createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
-}
+const enhancer = compose(
+  applyMiddleware(thunk),
+  devToolsEnhancer({ realtime: true }),
+);
+
+const configureStore = () => {
+  const store = createStore(
+    rootReducer,
+    undefined,
+    enhancer,
+  );
+
+  const persistor = persistStore(store);
+  // persistor.purge ();
+  return { persistor, store };
+};
+
+export const { persistor, store } = configureStore();

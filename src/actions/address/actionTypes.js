@@ -1,0 +1,3 @@
+export const START_GET_ADDRESS = 'START_GET_ADDRESS';
+export const STORE_ADDRESS = 'STORE_ADDRESS';
+export const END_GET_ADDRESS = 'END_GET_ADDRESS';

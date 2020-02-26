@@ -18,7 +18,6 @@ const Login = props => {
       <form onSubmit={event => {
         event.preventDefault();
         if (!user.username || !user.password) return
-        console.log(user)
 
         props.getLogin(user);
         setUser(initialFormState);
